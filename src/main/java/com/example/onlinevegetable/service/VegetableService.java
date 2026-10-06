@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.onlinevegetable.entity.Category;
 import com.example.onlinevegetable.repository.CategoryRepository;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,6 +29,8 @@ public class VegetableService {
         vegetable.setDescription(request.getDescription());
         vegetable.setPrice(request.getPrice());
         vegetable.setStock(request.getStock());
+        vegetable.setUnit(request.getUnit());
+        vegetable.setImageUrl(request.getImageUrl());
         Category category = categoryRepository.findById(request.getCategoryId())
                 .orElseThrow(() ->
                         new RuntimeException("Category not found"));
@@ -90,6 +91,8 @@ public class VegetableService {
         vegetable.setDescription(request.getDescription());
         vegetable.setPrice(request.getPrice());
         vegetable.setStock(request.getStock());
+        vegetable.setImageUrl(request.getImageUrl());
+        vegetable.setUnit(request.getUnit());
         Category category = categoryRepository.findById(request.getCategoryId())
                 .orElseThrow(() ->
                         new RuntimeException("Category not found"));
@@ -122,7 +125,9 @@ public class VegetableService {
         response.setDescription(vegetable.getDescription());
         response.setPrice(vegetable.getPrice());
         response.setStock(vegetable.getStock());
+        response.setUnit(vegetable.getUnit());
         response.setCategory(vegetable.getCategory().getName());
+        response.setImageUrl(vegetable.getImageUrl());
         return response;
     }
 }

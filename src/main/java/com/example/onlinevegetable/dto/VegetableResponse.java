@@ -7,7 +7,9 @@ public class VegetableResponse {
     private String description;
     private Double price;
     private Integer stock;
+    private String unit;
     private String category;
+    private String imageUrl;
 
     public Long getVegetableId() {
         return vegetableId;
@@ -49,12 +51,28 @@ public class VegetableResponse {
         this.stock = stock;
     }
 
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
     public String getCategory() {
         return category;
     }
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
 }

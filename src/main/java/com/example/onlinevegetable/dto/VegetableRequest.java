@@ -21,6 +21,11 @@ public class VegetableRequest {
     @NotNull(message = "Category is required")
     private Long categoryId;
 
+    @NotBlank(message = "Unit is required")
+    private String unit;
+
+    private String imageUrl;
+
     public String getName() {
         return name;
     }
@@ -61,4 +66,19 @@ public class VegetableRequest {
         this.categoryId = categoryId;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
 }

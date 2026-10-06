@@ -82,7 +82,8 @@ public class SecurityConfig {
                                 "/api/users/register",
                                 "/api/users/login",
                                 "/api/users/forgot-password",
-                                "/api/users/reset-password"
+                                "/api/users/reset-password",
+                                "/images/**"
                         ).permitAll()
 
                         // CART - CUSTOMER ONLY
@@ -139,6 +140,12 @@ public class SecurityConfig {
                         .requestMatchers(
                                 HttpMethod.POST,
                                 "/api/vegetables"
+                        ).hasRole("ADMIN")
+
+                        //ADD VEGETABLE - ADMIN ONLY
+                        .requestMatchers(
+                                HttpMethod.POST,
+                                "/api/vegetables/upload-image"
                         ).hasRole("ADMIN")
 
                         .requestMatchers(

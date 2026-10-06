@@ -21,6 +21,9 @@ public class Vegetable {
     @Column(nullable = false)
     private Integer stock;
 
+    @Column(nullable = false)
+    private String unit;
+
     @Column(name = "image_url")
     private String imageUrl;
 
@@ -65,6 +68,14 @@ public class Vegetable {
 
     public void setStock(Integer stock) {
         this.stock = stock;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     public Category getCategory() {

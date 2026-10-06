@@ -7,6 +7,9 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.example.onlinevegetable.service.ImageService;
+import org.springframework.web.multipart.MultipartFile;
+import java.util.Map;
 
 import java.util.List;
 
@@ -16,6 +19,9 @@ public class VegetableController {
 
     @Autowired
     private VegetableService vegetableService;
+
+    @Autowired
+    private ImageService imageService;
 
     // ADD VEGETABLE
     @PostMapping
@@ -70,5 +76,18 @@ public class VegetableController {
                 "Vegetable deleted successfully"
         );
     }
+
+    // NEW IMAGE UPLOAD API
+    @PostMapping("/upload-image")
+    public ResponseEntity<Map<String, String>> uploadVegetableImage(
+            @RequestParam("image") MultipartFile image) {
+
+        String imageUrl = imageService.saveImage(image);
+
+        return ResponseEntity.ok(
+                Map.of("imageUrl", imageUrl)
+        );
+    }
+
 
 }
